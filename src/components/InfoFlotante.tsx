@@ -35,10 +35,10 @@ export const InfoFlotante = () => {
                         <span className="font-medium">Faltadas:</span> horas ya perdidas.
                     </li>
                     <li>
-                        <span className="font-medium">Restantes:</span> las que podés faltar sin pasarte.
+                        <span className="font-medium">Restantes:</span> las que puedes faltar sin pasarte.
                     </li>
                     <li>
-                        <span className="font-medium">Límite:</span> máximo permitido (por porcentaje).
+                        <span className="font-medium">Límite:</span> máximo permitido (por porcentaje %).
                     </li>
                 </ul>
             </motion.div>
