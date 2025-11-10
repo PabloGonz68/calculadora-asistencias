@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import { Trash2, CalendarDays, LibraryBig, Notebook, BookDashed, MoveUp } from "lucide-react";
+import { Trash2, CalendarDays, LibraryBig, Notebook, MoveUp } from "lucide-react";
 import type { Asignatura } from "../utils/calculations";
 import { calcularAsistencia } from "../utils/calculations";
 import { GraficoFaltas } from "./GraficoFaltas";
-import { div } from "framer-motion/client";
+
 
 interface ListaAsignaturasProps {
     asignaturas: Asignatura[];
