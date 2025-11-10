@@ -6,6 +6,7 @@ import { guardarAsignaturas, cargarAsignaturas } from '../utils/calculations';
 import { Flame } from 'lucide-react';
 import { InfoFlotante } from '../components/InfoFlotante';
 import { BackgroundEfecto } from '../components/BackgroundEfecto';
+import { Footer } from '../components/Footer';
 
 export const HomePage = () => {
     const [asignaturas, setAsignaturas] = useState<Asignatura[]>([]);
@@ -75,6 +76,7 @@ export const HomePage = () => {
                     />
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };
