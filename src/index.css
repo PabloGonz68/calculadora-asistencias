@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1D3750;
+  --color-primary-dark: #172E40;
+  --color-primary-light: #A3BACE;
+  --color-secondary: #6590BB;
+  --color-secondary-light: #D8E6F3;
+  --color-fondo: #F5F7FA;
+  --color-texto: #213547;
+  --color-acento: #C13D3B;
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s infinite;
+}
+
+
+/* 🌈 Fondo degradado animado */
+.bg-gradient-animado {
+  background: linear-gradient(135deg, #dbeafe, #A3BACE, #6590BB, #e0e7ff);
+  background-size: 400% 400%;
+  animation: gradientShift 18s ease infinite;
+  background-attachment: fixed;
+}
+
+/* ✨ Bolitas flotantes */
+.bola-flotante {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(29, 55, 80, 0.3); /* Indigo translúcido */
+  animation: floaty 15s ease-in-out infinite;
+  filter: blur(2px);
+}
+
+/* 🎞️ Animaciones */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floaty {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(30px, -50px) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.7;
+  }
+}
+
+
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
