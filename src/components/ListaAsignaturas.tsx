@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
-import { Trash2, CalendarDays, LibraryBig, Notebook } from "lucide-react";
+import { Trash2, CalendarDays, LibraryBig, Notebook, BookDashed, MoveUp } from "lucide-react";
 import type { Asignatura } from "../utils/calculations";
 import { calcularAsistencia } from "../utils/calculations";
 import { GraficoFaltas } from "./GraficoFaltas";
+import { div } from "framer-motion/client";
 
 interface ListaAsignaturasProps {
     asignaturas: Asignatura[];
@@ -21,9 +22,22 @@ export const ListaAsignaturas = ({
             </h2>
 
             {asignaturas.length === 0 && (
-                <p className="text-gray-500 text-center italic">
-                    No hay asignaturas registradas todavía 🔍
-                </p>
+                <div className="flex items-center justify-center gap-3 rounded-2xl w-full bg-secondary-light/60 shadow-2xl">
+
+                    <div className="px-5 py-20 flex flex-col items-center gap-4">
+                        <p className="text-primary text-center text-2xl font-semibold">
+                            No hay asignaturas registradas todavía
+                            <span className="dot">.</span>
+                            <span className="dot">.</span>
+                            <span className="dot">.</span>
+                        </p>
+                        <p className="text-primary/90 text-sm text-shadow-2xs">Puedes agregarlas en la sección superior de "Agregar Asignaturas"</p>
+                        <MoveUp size={40} className="bg-primary text-secondary-light rounded-full p-2 animate-bounce-slow" />
+
+
+
+                    </div>
+                </div>
             )}
 
             <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2 items-stretch">
