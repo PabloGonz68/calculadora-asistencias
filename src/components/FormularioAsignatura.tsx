@@ -9,10 +9,12 @@ export interface Asignatura {
     id: string;
     nombre: string;
     horario: HorarioDia[];
+    horasTotalesCurso: number;
+    diasCursoSemanales: number;
     horasFaltadas: number;
-    horasTotales: number;
     porcentaje?: number;
 }
+
 
 interface FormularioAsignaturaProps {
     onAgregarAsignatura: (asignatura: Asignatura) => void;
@@ -57,10 +59,12 @@ export const FormularioAsignatura = ({ onAgregarAsignatura }: FormularioAsignatu
             id: Date.now().toString(),
             nombre: formData.nombre,
             horario: formData.horario,
-            horasTotales: Number(formData.horasTotales),
+            horasTotalesCurso: Number(formData.horasTotales),
+            diasCursoSemanales: formData.horario.filter(d => d.activo).length,
             horasFaltadas: Number(formData.horasFaltadas),
             porcentaje: Number(formData.porcentaje),
         };
+
 
         onAgregarAsignatura(nuevaAsignatura);
 
@@ -154,9 +158,14 @@ export const FormularioAsignatura = ({ onAgregarAsignatura }: FormularioAsignatu
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-primary-dark mb-3">
-                                Horario semanal
-                            </label>
+                            <div>
+                                <label className="block text-sm font-medium text-primary-dark mb-1">
+                                    Horario semanal
+                                </label>
+                                <p className="text-xs text-primary mb-2">
+                                    Selecciona todos los días que tengas clase. Para cada día activo, indica únicamente las horas que corresponden a esta asignatura.
+                                </p>
+                            </div>
                             <div className="grid gap-3 md:grid-cols-2">
                                 {formData.horario.map((dia, index) => (
                                     <motion.div
@@ -191,7 +200,6 @@ export const FormularioAsignatura = ({ onAgregarAsignatura }: FormularioAsignatu
                                                     onChange={(e) => handleHorarioChange(index, 'horas', Number(e.target.value))}
                                                     min="1"
                                                     max="24"
-                                                    required
                                                     placeholder="Horas"
                                                     className="w-20 rounded-md border border-gray-300 p-1 text-center focus:border-primary focus:ring-primary focus:ring-1 outline-none transition-all duration-200"
                                                     initial={{ opacity: 0, scale: 0.9 }}

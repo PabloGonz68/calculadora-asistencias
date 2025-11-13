@@ -42,7 +42,7 @@ export const ListaAsignaturas = ({
 
             <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2 items-stretch">
                 {asignaturas.map((asignatura, index) => {
-                    const { horasSemanales, horasRestantes, limiteFaltas } =
+                    const { horasSemanales, horasRestantes, limiteFaltas, totalHorasAsignatura } =
                         calcularAsistencia(asignatura);
 
                     const percentOfLimit =
@@ -107,7 +107,9 @@ export const ListaAsignaturas = ({
 
                                     {/* Datos */}
                                     <dl className="grid grid-cols-2 gap-3 text-sm">
-                                        <DataItem label="Horas totales" value={asignatura.horasTotales} />
+                                        <DataItem label="Horas totales del curso" value={asignatura.horasTotalesCurso} />
+                                        <DataItem label="Horas de la asignatura" value={totalHorasAsignatura} />
+                                        <DataItem label="Días del curso" value={asignatura.diasCursoSemanales} />
                                         <DataItem label="Horas semanales" value={horasSemanales} />
                                         <DataItem label="Faltadas" value={asignatura.horasFaltadas} />
                                         <DataItem label="Restantes" value={horasRestantes} />
@@ -128,7 +130,7 @@ export const ListaAsignaturas = ({
                                         <GraficoFaltas
                                             horasFaltadas={asignatura.horasFaltadas}
                                             limiteFaltas={limiteFaltas}
-                                            totalHoras={asignatura.horasTotales}
+                                            totalHoras={totalHorasAsignatura}
                                         />
 
                                         <div className="mt-2">
